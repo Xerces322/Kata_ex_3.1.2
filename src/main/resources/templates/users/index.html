@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Nickname</th>
+        <th>Country</th>
+        <th>Email</th>
+        <th>Link</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="u : ${users}">
+        <td th:text="${u.id}"></td>
+        <td th:text="${u.nickname}"></td>
+        <td th:text="${u.country}"></td>
+        <td th:text="${u.email}"></td>
+        <td><a th:href="@{/users/show(id=${u.id})}">go</a></td>
+    </tr>
+    </tbody>
+</table>
+<hr/>
+
+<a href="/users/new">Create new</a>
+</body>
+</html>
